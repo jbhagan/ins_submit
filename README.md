@@ -18,7 +18,7 @@ of the project (in which there should be a file named manage.py), type
 
 This will start a sinple server that is used to serve up the Django page.
 
-In your browser, enter the [URL](localhost:8000/submit_reference_file/
+In your browser, enter the [URL](localhost:8000/submit_reference_file/)
 
 This gets handled by the file ins_submit/urls.py in the first line of
 urlpatterns:
