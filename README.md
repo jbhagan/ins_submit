@@ -16,7 +16,7 @@ of the project (in which there should be a file named manage.py), type
 
 % python manage.py runserver
 
-This will start a sinple server that is used to serve up the Django page.
+This will start a simple server that is used to serve up the Django page.
 
 In your browser, enter the URL [http://127.0.0.1:8000/submit_reference_file/](http://127.0.0.1:8000/submit_reference_file/)
 
@@ -24,3 +24,20 @@ This gets handled by the file ins_submit/urls.py in the first line of
 urlpatterns:
 
     path('submit_reference_file/', include('submit_reference_file.urls')),
+
+This delegates the URL of the SITE (ins_submit) to the APPLICATION (submit_reference_file).
+
+We can look in the file ins_submit/submit_reference_file/urls.py to see that the path with
+an empty string in the submit_reference_file application is handled by the entry 'index'
+in views.py:
+
+    from django.shortcuts import render
+    
+    from django.http import HttpResponse
+    from django.template import loader
+    
+    # Create your views here.
+    
+    def index(request):
+        template = loader.get_template('submit_reference_file/index.html')
+        return HttpResponse(template.render({}, request))
