@@ -41,3 +41,18 @@ in views.py:
     def index(request):
         template = loader.get_template('submit_reference_file/index.html')
         return HttpResponse(template.render({}, request))
+
+This delegates the work of displaying the page to a template.  This is stored in
+
+ins_submit/submit_reference_file/templates/submit_reference_file/index.html
+
+This is the file that actually contains the html that gets rendered when we load this
+page.
+
+The file index.html was created by hand modeled extensively on the file
+
+crds-server/sources/interactive/templates/batch_submit_reference_input.html
+
+and doesn't actually do anything, but potentialy the items in double braces can get
+passed to a handler routine that will live in the submit_reference_file/models.py
+file.
